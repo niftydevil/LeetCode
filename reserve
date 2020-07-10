@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+
+class Solution():
+
+    def reserve(self, x):
+        if -10 < x < 10:
+            return x
+
+        str_x = str(x)       
+        if str_x[0] != '-':
+            str_x = str_x[::-1]
+            # print(str_x)
+            # str转为int时，无效的0会自动清除
+            x = int(str_x)
+            # print(x)
+        else:
+            str_x = str_x[:0:-1]
+            x = int(str_x)
+            x = -x
+
+        if -2147483648 < x < 2147483647:
+            return x
+        else:
+            return 0
+
+
+if __name__ == "__main__":
+    x = 7584375890
+    solution = Solution()
+    print(solution.reserve(x))
